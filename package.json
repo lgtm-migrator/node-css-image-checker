@@ -1,0 +1,21 @@
+{
+  "name": "node-css-image-checker",
+  "version": "1.0.0",
+  "description": "Checks if all images in a CSS file exists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Henrik Gemal <henrik@gemal.dk> (http://gemal.dk/)",
+  "license": "MIT",
+  "bin": {
+    "css-image-checker": "css-image-checker.js"
+  },
+  "dependencies": {
+    "css-url-parser": "^1.1.3",
+    "fs": "0.0.1-security",
+    "is-url": "^1.2.4",
+    "optimist": "^0.6.1",
+    "recursive-readdir": "^2.2.2"
+  }
+}
