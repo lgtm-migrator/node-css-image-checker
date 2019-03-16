@@ -8,7 +8,7 @@
         "url": "git+https://github.com/gemal/node-css-image-checker.git"
     },
     "scripts": {
-        "test": "mocha test/"
+        "test": "mocha"
     },
     "author": "Henrik Gemal <henrik@gemal.dk> (http://gemal.dk/)",
     "license": "MIT",
