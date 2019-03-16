@@ -5,17 +5,20 @@
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gemal/node-css-image-checker.git"
+        "url": "https://github.com/gemal/node-css-image-checker.git"
     },
     "scripts": {
-        "test": "mocha"
+        "test": "mocha",
+        "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
     },
     "author": "Henrik Gemal <henrik@gemal.dk> (http://gemal.dk/)",
     "license": "MIT",
     "bin": {
         "css-image-checker": "index.js"
     },
-    "bugs": "https://github.com/flaviocopes/package/issues",
+    "bugs": {
+        "url": "https://github.com/flaviocopes/package/issues"
+    },
     "keywords": [
         "css",
         "check",
@@ -32,6 +35,8 @@
     },
     "devDependencies": {
         "chai": "^4.2.0",
-        "mocha": "^6.0.2"
+        "codecov": "^3.2.0",
+        "mocha": "^6.0.2",
+        "nyc": "^13.3.0"
     }
 }
