@@ -13,7 +13,7 @@
     "author": "Henrik Gemal <henrik@gemal.dk> (http://gemal.dk/)",
     "license": "MIT",
     "bin": {
-        "css-image-checker": "css-image-checker.js"
+        "css-image-checker": "index.js"
     },
     "bugs": "https://github.com/flaviocopes/package/issues",
     "keywords": [
@@ -28,7 +28,7 @@
         "css-url-parser": "^1.1.3",
         "fs": "0.0.1-security",
         "is-url": "^1.2.4",
-        "recursive-readdir": "^2.2.2"
+        "recursive-readdir-synchronous": "0.0.4"
     },
     "devDependencies": {
         "chai": "^4.2.0",
