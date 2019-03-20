@@ -38,6 +38,20 @@ describe('index.js', function () {
         });
     });
 
+    it('should exit 0 having no css problems with verbose', function (done) {
+        var out = '';
+        spawn('node', [path.join(__dirname, '../index.js'), '--verbose', '--folder', 'test/css2'], {
+            cwd: path.join(__dirname, '../'),
+        }).on('exit', function (code) {
+            assert.equal(code, 0);
+            expect(out).to.match(/OK: .*?\.\.\/firefox\.png/);
+            expect(out).to.match(/Number of errors: 0/);
+            done();
+        }).stdout.on('data', function (data) {
+            out += data;
+        });
+    });
+
     it('should exit 0 having no css problems without url params', function (done) {
         var out = '';
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css3'], {
