@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-"use strict";
+'use strict';
 
 const recursive = require('recursive-readdir-synchronous');
 const parseCssUrls = require('css-url-parser');
@@ -21,7 +21,7 @@ function checkFolder() {
             cssUrls.forEach(function (cssUrl) {
                 if (isurl(cssUrl)) {
                 } else {
-                    var cssReal = cssUrl.replace(/(\?|#).*$/, "");
+                    var cssReal = cssUrl.replace(/(\?|#).*$/, '');
                     var fullPath = filePath + cssReal;
                     if (cssReal.charAt(0) === '/') {
                         fullPath = program.folder + cssReal;
@@ -44,7 +44,7 @@ function checkFolder() {
             })
         }
     });
-    console.log("Number of errors: " + errors);
+    console.log('Number of errors: ' + errors);
     return errors;
 }
 
@@ -65,14 +65,14 @@ if (program.folder) {
                 process.exitCode = 0;
             }
         } else {
-            console.log("Oops! Folder is not a real folder: " + program.folder);
+            console.log('Oops! Folder is not a real folder: ' + program.folder);
             process.exitCode = 4;
         }
     } else {
-        console.log("Oops! Folder does not exists: " + program.folder);
+        console.log('Oops! Folder does not exists: ' + program.folder);
         process.exitCode = 3;
     }
 } else {
-    console.log("Oops! Please specify a folder");
+    console.log('Oops! Please specify a folder');
     process.exitCode = 2;
 }
