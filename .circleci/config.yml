@@ -38,6 +38,8 @@ jobs:
       # upload code coverage
       - run: ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov
       - run: ./node_modules/.bin/codecov
+      - run: which nyc
+      - run: which codecov
 
       # security test
       - run: sudo npm --gloabl install snyk
