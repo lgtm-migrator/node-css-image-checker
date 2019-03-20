@@ -18,7 +18,7 @@ function checkFolder() {
       var filePath = path.dirname(file) + path.sep;
       var filecontent = fs.readFileSync(file, {encoding: 'utf-8'});
       var cssUrls = parseCssUrls(filecontent);
-      cssUrls.forEach(functio (cssUrl) {
+      cssUrls.forEach(function(cssUrl) {
         if (isurl(cssUrl)) {
         } else {
           var cssReal = cssUrl.replace(/(\?|#).*$/, '');
