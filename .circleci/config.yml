@@ -1,7 +1,3 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   build:
@@ -13,9 +9,6 @@ jobs:
 
     steps:
       - checkout
-
-      # add node to path
-      #- run: export PATH=~/repo/node_modules/.bin:$PATH
 
       # Download and cache dependencies
       - restore_cache:
@@ -41,7 +34,6 @@ jobs:
 
       # correct line endings
       - run: sudo npm --global install lintspaces-cli
-      - run: which lintspaces
       - run: find ./*.js ./*.json ./*.md test/*.js | xargs lintspaces --endofline 'lf' --newline --trailingspaces --verbose
       - run: find test/ -name '*.css' | xargs lintspaces --endofline 'lf' --newline --trailingspaces --verbose
 
