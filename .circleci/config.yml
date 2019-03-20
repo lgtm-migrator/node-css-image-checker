@@ -30,6 +30,7 @@ jobs:
 
       # audit the pacakges
       - run: npm audit
+      - run: npm ls
 
       # run tests!
       - run: ./node_modules/.bin/nyc npm test
