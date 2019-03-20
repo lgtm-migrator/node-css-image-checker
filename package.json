@@ -8,8 +8,7 @@
         "url": "https://github.com/gemal/node-css-image-checker.git"
     },
     "scripts": {
-        "test": "mocha",
-        "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+        "test": "mocha"
     },
     "author": "Henrik Gemal <henrik@gemal.dk> (http://gemal.dk/)",
     "license": "MIT",

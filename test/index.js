@@ -6,6 +6,9 @@ const spawn = require('child_process').spawn;
 const expect = require('chai').expect;
 
 describe('index.js', function () {
+
+    this.timeout(8000);
+
     it('should exit 1 having css problems', function (done) {
         var out = '';
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css1'], {
