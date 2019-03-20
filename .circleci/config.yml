@@ -8,6 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
+      - image: snyk/snyk-cli
 
     working_directory: ~/repo
 
@@ -34,3 +35,6 @@ jobs:
       # upload code coverage
       - run: ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov
       - run: ./node_modules/.bin/codecov
+
+      # security test
+      - run: snyk test
