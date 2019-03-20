@@ -53,11 +53,11 @@ function checkFolder() {
 }
 
 program
-        .version(require('./package.json').version)
-        .description('Checks if all images in CSS files exists')
-        .option('-f, --folder <folder>', 'Folder with CSS files to check')
-        .option('-v, --verbose', 'Add more output')
-        .parse(process.argv);
+    .version(require('./package.json').version)
+    .description('Checks if all images in CSS files exists')
+    .option('-f, --folder <folder>', 'Folder with CSS files to check')
+    .option('-v, --verbose', 'Add more output')
+    .parse(process.argv);
 
 if (program.folder) {
     if (fs.existsSync(program.folder)) {
