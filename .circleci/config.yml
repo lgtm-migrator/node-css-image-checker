@@ -32,6 +32,10 @@ jobs:
       - run: npm audit
       - run: npm ls
 
+      # security test
+      - run: sudo npm --global install jslint
+      - run: jslint '*.js' 'test/*.js'
+
       # run tests!
       - run: ./node_modules/.bin/nyc npm test
 
