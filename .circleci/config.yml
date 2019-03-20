@@ -33,7 +33,8 @@ jobs:
       - run: npm ls
 
       # lint
-      - run: sudo npm --global install eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard
+      #- run: sudo npm --global install eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard
+      - run: sudo npm --global install eslint eslint-config-google
       - run: eslint '*.js' 'test/*.js'
 
       # run tests!
