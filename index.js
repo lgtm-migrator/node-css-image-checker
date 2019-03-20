@@ -24,7 +24,7 @@ function checkFolder() {
                     var cssReal = cssUrl.replace(/(\?|#).*$/, "");
                     var fullPath = filePath + cssReal;
                     if (cssReal.charAt(0) === '/') {
-                        fullPath = folder + cssReal;
+                        fullPath = program.folder + cssReal;
                     }
                     if (!fs.existsSync(fullPath)) {
                         console.log('Error found in: ' + file);
