@@ -11,7 +11,7 @@ const program = require('commander');
 
 /**
  * Check a folder.
- * @returns {number}
+ * @return {number}
  */
 function checkFolder() {
   let errors = 0;
