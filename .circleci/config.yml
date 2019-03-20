@@ -32,6 +32,5 @@ jobs:
       - run: ./node_modules/.bin/nyc npm test
 
       # upload code coverage
-      - run:
-          - ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov
-          - ./node_modules/.bin/codecov
+      - run: ./node_modules/.bin/nyc report --reporter=text-lcov
+      - run: ./node_modules/.bin/codecov
