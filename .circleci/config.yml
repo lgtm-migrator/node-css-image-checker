@@ -28,9 +28,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # verify the lock file
-      - run: npm ls
-
       # audit the pacakges
       - run: npm audit
 
