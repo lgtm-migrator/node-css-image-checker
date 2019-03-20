@@ -10,7 +10,7 @@ npm install -g node-css-image-checker
 css-image-checker --folder '/www-folder'
 ```
 
-### Example
+## Example
 
 Consider the following code:
 ```
@@ -32,7 +32,7 @@ Path in CSS file: logo.png
 Number of errors: 1
 ```
 
-### Exit codes
+## Exit codes
 ```
 0 = No errors
 1 = Errors were founds in the CSS files
@@ -43,6 +43,8 @@ Number of errors: 1
 
 ## Continuous Integration
 css-image-checker can be used in CI envionments to check your CSS files before merging a pull request
+
+## Badges
 
 [![CircleCI](https://circleci.com/gh/gemal/node-css-image-checker.svg?style=svg)](https://circleci.com/gh/gemal/node-css-image-checker)
 
