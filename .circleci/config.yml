@@ -15,7 +15,7 @@ jobs:
       - checkout
 
       # add node to path
-      - run: export PATH=~/repo/node_modules/.bin:$PATH
+      #- run: export PATH=~/repo/node_modules/.bin:$PATH
 
       # Download and cache dependencies
       - restore_cache:
@@ -40,10 +40,10 @@ jobs:
       - run: snyk test
 
       # correct line endings
-      - run: sudo npm --global install lintspaces
+      - run: sudo npm --global install lintspaces-cli
       - run: which lintspaces
-      - run: find ./*.js ./*.json ./*.md test/*.js | xargs lintspaces --endofline 'lf' --newline --trailingspaces
-      - run: find test/ -name '*.css' | xargs lintspaces --endofline 'lf' --newline --trailingspaces
+      - run: find ./*.js ./*.json ./*.md test/*.js | xargs lintspaces --endofline 'lf' --newline --trailingspaces --verbose
+      - run: find test/ -name '*.css' | xargs lintspaces --endofline 'lf' --newline --trailingspaces --verbose
 
       # lint
       - run: sudo npm --global install eslint eslint-config-google
