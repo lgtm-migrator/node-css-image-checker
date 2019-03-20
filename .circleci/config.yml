@@ -40,5 +40,5 @@ jobs:
       - run: ./node_modules/.bin/codecov
 
       # security test
-      - run: sudo npm --gloabl install snyk
+      - run: sudo npm --global install snyk
       - run: snyk test
