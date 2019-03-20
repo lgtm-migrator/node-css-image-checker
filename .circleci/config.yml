@@ -29,7 +29,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: nyc npm test
+      - run: ./node_modules/.bin/nyc npm test
 
       # upload code coverage
-      - run: nyc report --reporter=text-lcov > coverage.lcov && codecov
+      - run:
+          - ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov
+          - ./node_modules/.bin/codecov
