@@ -32,8 +32,15 @@ jobs:
       - run: npm audit
       - run: npm ls
 
+      # security test
+      - run: sudo npm --global install snyk
+      - run: snyk test
+
+      # correct line endings
+      - run: sudo npm --global install lintspaces
+      - run: find ./*.js ./*.json ./*.md test/*.js test/*/*.css test/ -name '*.css' | xargs lintspaces --endofline 'lf' --newline --trailingspaces
+
       # lint
-      #- run: sudo npm --global install eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard
       - run: sudo npm --global install eslint eslint-config-google
       - run: eslint '*.js' 'test/*.js'
 
@@ -43,7 +50,3 @@ jobs:
       # upload code coverage
       - run: ./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov
       - run: ./node_modules/.bin/codecov
-
-      # security test
-      - run: sudo npm --global install snyk
-      - run: snyk test
