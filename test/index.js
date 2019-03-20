@@ -12,7 +12,7 @@ describe('index.js', function() {
   this.timeout(8000);
 
   it('should exit 1 having css problems', function(done) {
-    var out = '';
+    let out = '';
     spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css1'], {
       cwd: path.join(__dirname, '../'),
     }).on('exit', function(code) {
@@ -28,7 +28,7 @@ describe('index.js', function() {
   });
 
   it('should exit 0 having no css problems with url params ?', function(done) {
-    var out = '';
+    let out = '';
     spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css2'], {
       cwd: path.join(__dirname, '../'),
     }).on('exit', function(code) {
@@ -41,7 +41,7 @@ describe('index.js', function() {
   });
 
   it('should exit 0 having no css problems with verbose', function(done) {
-    var out = '';
+    let out = '';
     spawn('node', [path.join(__dirname, '../index.js'), '--verbose', '--folder', 'test/css2'], {
       cwd: path.join(__dirname, '../'),
     }).on('exit', function(code) {
@@ -55,7 +55,7 @@ describe('index.js', function() {
   });
 
   it('should exit 0 having no css problems without url params', function(done) {
-    var out = '';
+    let out = '';
     spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css3'], {
       cwd: path.join(__dirname, '../'),
     }).on('exit', function(code) {
@@ -68,7 +68,7 @@ describe('index.js', function() {
   });
 
   it('should exit 0 having css problems with url params #', function(done) {
-    var out = '';
+    let out = '';
     spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css4'], {
       cwd: path.join(__dirname, '../'),
     }).on('exit', function(code) {
@@ -81,7 +81,7 @@ describe('index.js', function() {
   });
 
   it('should exit 0 having no css problems absolute and url params', function(done) {
-    var out = '';
+    let out = '';
     spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css5'], {
       cwd: path.join(__dirname, '../'),
     }).on('exit', function(code) {
@@ -94,7 +94,7 @@ describe('index.js', function() {
   });
 
   it('should exit 1 having css problems absolute', function(done) {
-    var out = '';
+    let out = '';
     spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css6'], {
       cwd: path.join(__dirname, '../'),
     }).on('exit', function(code) {
@@ -113,7 +113,7 @@ describe('index.js', function() {
   });
 
   it('should exit 0 having css problems url', function(done) {
-    var out = '';
+    let out = '';
     spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css7'], {
       cwd: path.join(__dirname, '../'),
     }).on('exit', function(code) {
