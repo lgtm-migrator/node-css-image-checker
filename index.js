@@ -12,13 +12,13 @@ const program = require('commander');
 function checkFolder() {
   var errors = 0;
   var files = recursive(program.folder);
-  files.forEach(function (file) {
+  files.forEach(function(file) {
     var ext = path.extname(file);
     if (ext === '.css') {
       var filePath = path.dirname(file) + path.sep;
       var filecontent = fs.readFileSync(file, {encoding: 'utf-8'});
       var cssUrls = parseCssUrls(filecontent);
-      cssUrls.forEach(function (cssUrl) {
+      cssUrls.forEach(functio (cssUrl) {
         if (isurl(cssUrl)) {
         } else {
           var cssReal = cssUrl.replace(/(\?|#).*$/, '');
@@ -41,7 +41,7 @@ function checkFolder() {
             }
           }
         }
-      })
+     });
     }
   });
   console.log('Number of errors: ' + errors);
