@@ -9,10 +9,6 @@ const path = require('path');
 const isurl = require('is-url');
 const program = require('commander');
 
-process.on('exit', function(code) {  
-    return console.log(`About to exit with code ${code}`);
-});
-
 function checkFolder() {
     var errors = 0;
     var files = recursive(program.folder);
@@ -53,26 +49,30 @@ function checkFolder() {
 }
 
 program
-    .description('Checks if all images in CSS files exists')
-    .option('-f, --folder <folder>', 'Folder with CSS files to check')
-    .option('-v, --verbose', 'Add more output')
-    .parse(process.argv);
+        .description('Checks if all images in CSS files exists')
+        .option('-f, --folder <folder>', 'Folder with CSS files to check')
+        .option('-v, --verbose', 'Add more output')
+        .parse(process.argv);
 
 if (program.folder) {
     if (fs.existsSync(program.folder)) {
         var stats = fs.statSync(program.folder);
         if (stats.isDirectory()) {
             var err = checkFolder();
-            process.exitCode = err;
+            if (err > 0) {
+                process.exitCode = 1;
+            } else {
+                process.exitCode = 0;
+            }
         } else {
             console.log("Oops! Folder is not a real folder: " + program.folder);
-            process.exitCode = -1;
+            process.exitCode = 4;
         }
     } else {
         console.log("Oops! Folder does not exists: " + program.folder);
-        process.exitCode = -2;
+        process.exitCode = 3;
     }
 } else {
     console.log("Oops! Please specify a folder");
-    process.exitCode = -3;
+    process.exitCode = 2;
 }
