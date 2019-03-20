@@ -1,4 +1,4 @@
-# node-css-image-checker
+# css-image-checker
 Checks if all images in a local CSS file exists
 
 ## What does it do?
@@ -6,7 +6,7 @@ css-image-checker can check CSS files for invalid referenced images
 
 ## Usage
 ```
-npm install -g node-css-image-checker
+npm install -g css-image-checker
 css-image-checker --folder '/www-folder'
 ```
 
@@ -42,7 +42,7 @@ Number of errors: 1
 ```
 
 ## Continuous Integration
-css-image-checker can be used in CI envionments to check your CSS files before merging a pull request
+css-image-checker can be used in CI environments to check your CSS files before merging a pull request
 
 ## Badges
 
