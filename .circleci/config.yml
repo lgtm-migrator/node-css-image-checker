@@ -14,6 +14,9 @@ jobs:
     steps:
       - checkout
 
+      # add node to path
+      - run: export PATH=~/repo/node_modules/.bin:$PATH
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -38,6 +41,7 @@ jobs:
 
       # correct line endings
       - run: sudo npm --global install lintspaces
+      - run: which lintspaces
       - run: find ./*.js ./*.json ./*.md test/*.js | xargs lintspaces --endofline 'lf' --newline --trailingspaces
       - run: find test/ -name '*.css' | xargs lintspaces --endofline 'lf' --newline --trailingspaces
 
