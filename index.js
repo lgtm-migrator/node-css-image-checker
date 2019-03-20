@@ -41,7 +41,7 @@ function checkFolder() {
             }
           }
         }
-     });
+      });
     }
   });
   console.log('Number of errors: ' + errors);
