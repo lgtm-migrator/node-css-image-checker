@@ -1,6 +1,6 @@
 {
-    "name": "node-css-image-checker",
-    "version": "1.0.0",
+    "name": "css-image-checker",
+    "version": "1.0.1",
     "description": "Checks if all images in CSS files exists",
     "main": "index.js",
     "repository": {
@@ -22,7 +22,10 @@
         "css",
         "check",
         "cli",
-        "images"
+        "images",
+        "validate",
+        "automate",
+        "ci"
     ],
     "homepage": "https://github.com/gemal/node-css-image-checker",
     "dependencies": {
