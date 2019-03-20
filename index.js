@@ -9,6 +9,10 @@ const path = require('path');
 const isurl = require('is-url');
 const program = require('commander');
 
+/**
+ * Check a folder.
+ * @returns {number}
+ */
 function checkFolder() {
   let errors = 0;
   const files = recursive(program.folder);
