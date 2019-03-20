@@ -10,19 +10,19 @@ const isurl = require('is-url');
 const program = require('commander');
 
 function checkFolder() {
-  var errors = 0;
-  var files = recursive(program.folder);
+  let errors = 0;
+  const files = recursive(program.folder);
   files.forEach(function(file) {
-    var ext = path.extname(file);
+    const ext = path.extname(file);
     if (ext === '.css') {
-      var filePath = path.dirname(file) + path.sep;
-      var filecontent = fs.readFileSync(file, {encoding: 'utf-8'});
-      var cssUrls = parseCssUrls(filecontent);
+      const filePath = path.dirname(file) + path.sep;
+      const filecontent = fs.readFileSync(file, {encoding: 'utf-8'});
+      const cssUrls = parseCssUrls(filecontent);
       cssUrls.forEach(function(cssUrl) {
         if (isurl(cssUrl)) {
         } else {
-          var cssReal = cssUrl.replace(/(\?|#).*$/, '');
-          var fullPath = filePath + cssReal;
+          const cssReal = cssUrl.replace(/(\?|#).*$/, '');
+          let fullPath = filePath + cssReal;
           if (cssReal.charAt(0) === '/') {
             fullPath = program.folder + cssReal;
           }
@@ -56,9 +56,9 @@ program
 
 if (program.folder) {
   if (fs.existsSync(program.folder)) {
-    var stats = fs.statSync(program.folder);
+    const stats = fs.statSync(program.folder);
     if (stats.isDirectory()) {
-      var err = checkFolder();
+      const err = checkFolder();
       if (err > 0) {
         process.exitCode = 1;
       } else {
