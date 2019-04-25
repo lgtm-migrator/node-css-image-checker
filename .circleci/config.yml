@@ -34,6 +34,9 @@ jobs:
       - run: sudo npm --global install snyk
       - run: snyk test
 
+      # check the package lock file
+      - run: ./node_modules/.bin/check-package-lock
+
       # correct line endings
       - run: sudo npm --global install lintspaces-cli
       - run: find ./*.js ./*.json ./*.md test/*.js | xargs lintspaces --endofline 'lf' --newline --trailingspaces --verbose
