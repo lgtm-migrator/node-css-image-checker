@@ -16,7 +16,7 @@
         "css-image-checker": "index.js"
     },
     "bugs": {
-        "url": "https://github.com/flaviocopes/package/issues"
+        "url": "https://github.com/gemal/node-css-image-checker/issues"
     },
     "keywords": [
         "css",
@@ -31,7 +31,6 @@
     "dependencies": {
         "commander": "^2.20.0",
         "css-url-parser": "^1.1.3",
-        "fs": "0.0.1-security",
         "is-url": "^1.2.4",
         "recursive-readdir-synchronous": "0.0.4"
     },
