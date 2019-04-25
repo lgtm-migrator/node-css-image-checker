@@ -1,6 +1,6 @@
 {
     "name": "css-image-checker",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Checks if all images in CSS files exists",
     "main": "index.js",
     "repository": {
@@ -40,7 +40,7 @@
         "child_process": "^1.0.2",
         "codecov": "^3.3.0",
         "expect": "^24.7.1",
-        "mocha": "^6.1.2",
-        "nyc": "^13.3.0"
+        "mocha": "^6.1.4",
+        "nyc": "^14.0.0"
     }
 }
