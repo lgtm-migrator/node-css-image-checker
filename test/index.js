@@ -16,7 +16,7 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css1'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 1);
+            assert.strictEqual(code, 1);
             expect(out).to.match(/Error found in:.*?style\.css/);
             expect(out).to.match(/Full path not found.*?\.\.\/img\/404\.png/);
             expect(out).to.match(/Path in CSS file: \.\.\/img\/404\.png\?v=5/);
@@ -32,7 +32,7 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css2'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 0);
+            assert.strictEqual(code, 0);
             expect(out).to.match(/Number of errors: 0/);
             done();
         }).stdout.on('data', function(data) {
@@ -45,7 +45,7 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--verbose', '--folder', 'test/css2'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 0);
+            assert.strictEqual(code, 0);
             expect(out).to.match(/OK: .*?\.\.\/firefox\.png/);
             expect(out).to.match(/Number of errors: 0/);
             done();
@@ -59,7 +59,7 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css3'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 0);
+            assert.strictEqual(code, 0);
             expect(out).to.match(/Number of errors: 0/);
             done();
         }).stdout.on('data', function(data) {
@@ -72,7 +72,7 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css4'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 0);
+            assert.strictEqual(code, 0);
             expect(out).to.match(/Number of errors: 0/);
             done();
         }).stdout.on('data', function(data) {
@@ -85,7 +85,7 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css5'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 0);
+            assert.strictEqual(code, 0);
             expect(out).to.match(/Number of errors: 0/);
             done();
         }).stdout.on('data', function(data) {
@@ -98,10 +98,10 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css6'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 1);
+            assert.strictEqual(code, 1);
             expect(out).to.match(/Error found in:.*?style\.css/);
             expect(out).to.match(/Full path not found: test\/css6\/404\/firefox\.png/);
-            expect(out).to.match(/Path in CSS file: \/404\/firefox\.png\?\#iefix/);
+            expect(out).to.match(/Path in CSS file: \/404\/firefox\.png\?#iefix/);
             expect(out).to.match(/Original path in CSS file: \/404\/firefox\.png/);
             expect(out).to.match(/Full path not found: test\/css6\/40\/firefox\.png/);
             expect(out).to.match(/Path in CSS file: \/40\/firefox\.png/);
@@ -117,7 +117,7 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/css7'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 0);
+            assert.strictEqual(code, 0);
             expect(out).to.match(/Number of errors: 0/);
             done();
         }).stdout.on('data', function(data) {
@@ -129,9 +129,9 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js')], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 2);
+            assert.strictEqual(code, 2);
         }).stdout.on('data', function(data) {
-            assert.equal(data.toString(), 'Oops! Please specify a folder\n');
+            assert.strictEqual(data.toString(), 'Oops! Please specify a folder\n');
             done();
         });
     });
@@ -140,9 +140,9 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', '404'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 3);
+            assert.strictEqual(code, 3);
         }).stdout.on('data', function(data) {
-            assert.equal(data.toString(), 'Oops! Folder does not exists: 404\n');
+            assert.strictEqual(data.toString(), 'Oops! Folder does not exists: 404\n');
             done();
         });
     });
@@ -151,9 +151,9 @@ describe('index.js', function() {
         spawn('node', [path.join(__dirname, '../index.js'), '--folder', 'test/index.js'], {
             cwd: path.join(__dirname, '../'),
         }).on('exit', function(code) {
-            assert.equal(code, 4);
+            assert.strictEqual(code, 4);
         }).stdout.on('data', function(data) {
-            assert.equal(data.toString(), 'Oops! Folder is not a real folder: test/index.js\n');
+            assert.strictEqual(data.toString(), 'Oops! Folder is not a real folder: test/index.js\n');
             done();
         });
     });

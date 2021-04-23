@@ -7,7 +7,7 @@ const parseCssUrls = require('css-url-parser');
 const fs = require('fs');
 const path = require('path');
 const isurl = require('is-url');
-const program = require('commander');
+const {program} = require('commander');
 
 /**
  * Check a folder.
@@ -15,7 +15,7 @@ const program = require('commander');
  */
 function checkFolder() {
     let errors = 0;
-    const files = recursive(program.folder);
+    const files = recursive(options.folder);
     files.forEach(function(file) {
         const ext = path.extname(file);
         if (ext === '.css') {
@@ -23,12 +23,11 @@ function checkFolder() {
             const filecontent = fs.readFileSync(file, {encoding: 'utf-8'});
             const cssUrls = parseCssUrls(filecontent);
             cssUrls.forEach(function(cssUrl) {
-                if (isurl(cssUrl)) {
-                } else {
+                if (!isurl(cssUrl)) {
                     const cssReal = cssUrl.replace(/(\?|#).*$/, '');
                     let fullPath = filePath + cssReal;
                     if (cssReal.charAt(0) === '/') {
-                        fullPath = program.folder + cssReal;
+                        fullPath = options.folder + cssReal;
                     }
                     if (!fs.existsSync(fullPath)) {
                         console.log('Error found in: ' + file);
@@ -40,7 +39,7 @@ function checkFolder() {
                         console.log();
                         errors++;
                     } else {
-                        if (program.verbose) {
+                        if (options.verbose) {
                             console.log('OK: ' + fullPath);
                         }
                     }
@@ -59,9 +58,10 @@ program
     .option('-v, --verbose', 'Add more output')
     .parse(process.argv);
 
-if (program.folder) {
-    if (fs.existsSync(program.folder)) {
-        const stats = fs.statSync(program.folder);
+const options = program.opts();
+if (options.folder) {
+    if (fs.existsSync(options.folder)) {
+        const stats = fs.statSync(options.folder);
         if (stats.isDirectory()) {
             const err = checkFolder();
             if (err > 0) {
@@ -70,11 +70,11 @@ if (program.folder) {
                 process.exitCode = 0;
             }
         } else {
-            console.log('Oops! Folder is not a real folder: ' + program.folder);
+            console.log('Oops! Folder is not a real folder: ' + options.folder);
             process.exitCode = 4;
         }
     } else {
-        console.log('Oops! Folder does not exists: ' + program.folder);
+        console.log('Oops! Folder does not exists: ' + options.folder);
         process.exitCode = 3;
     }
 } else {
