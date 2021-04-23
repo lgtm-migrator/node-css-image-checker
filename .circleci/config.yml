@@ -31,20 +31,17 @@ jobs:
       - run: npm ls
 
       # security test
-      - run: sudo npm --global install snyk
-      - run: snyk test
+      - run: ./node_modules/.bin/snyk test
 
       # check the package lock file
       - run: ./node_modules/.bin/check-package-lock
 
       # correct line endings
-      - run: sudo npm --global install lintspaces-cli
-      - run: find ./*.js ./*.json ./*.md test/*.js | xargs lintspaces --endofline 'lf' --newline --trailingspaces --verbose
-      - run: find test/ -name '*.css' | xargs lintspaces --endofline 'lf' --newline --trailingspaces --verbose
+      - run: find ./*.js ./*.json ./*.md test/*.js | xargs ./node_modules/.bin/lintspaces --endofline 'lf' --newline --trailingspaces --verbose
+      - run: find test/ -name '*.css' | xargs ./node_modules/.bin/lintspaces --endofline 'lf' --newline --trailingspaces --verbose
 
       # lint
-      - run: sudo npm --global install eslint eslint-config-google
-      - run: eslint '*.js' 'test/*.js'
+      - run: ./node_modules/.bin/eslint '*.js' 'test/*.js'
 
       # run tests
       - run: ./node_modules/.bin/nyc npm test
