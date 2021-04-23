@@ -42,7 +42,9 @@
         "eslint": "^7.24.0",
         "eslint-config-google": "^0.14.0",
         "expect": "^26.6.2",
+        "lintspaces-cli": "^0.7.1",
         "mocha": "^8.3.2",
-        "nyc": "^15.1.0"
+        "nyc": "^15.1.0",
+        "snyk": "^1.563.0"
     }
 }
