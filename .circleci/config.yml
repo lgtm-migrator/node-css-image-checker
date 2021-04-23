@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # Use node image
-      - image: circleci/node:10
+      - image: circleci/node
 
     # code folder
     working_directory: ~/repo
@@ -33,15 +33,14 @@ jobs:
       # security test
       - run: ./node_modules/.bin/snyk test
 
-      # check the package lock file
-      - run: ./node_modules/.bin/check-package-lock
-
       # correct line endings
-      - run: find ./*.js ./*.json ./*.md test/*.js | xargs ./node_modules/.bin/lintspaces --endofline 'lf' --newline --trailingspaces --verbose
-      - run: find test/ -name '*.css' | xargs ./node_modules/.bin/lintspaces --endofline 'lf' --newline --trailingspaces --verbose
+      - run: find ./ -path ./node_modules -prune -o -name '*.css' -o -name '*.json' -o -name '*.md' -o -name '*.js' -o -name '*.yml' | xargs ./node_modules/.bin/lintspaces --endofline 'lf' --newline --trailingspaces --verbose
 
       # lint
       - run: ./node_modules/.bin/eslint '*.js' 'test/*.js'
+
+      # check the package lock file
+      - run: ./node_modules/.bin/check-package-lock
 
       # run tests
       - run: ./node_modules/.bin/nyc npm test
