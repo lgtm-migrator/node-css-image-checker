@@ -7,7 +7,7 @@ const parseCssUrls = require('css-url-parser');
 const fs = require('fs');
 const path = require('path');
 const isurl = require('is-url');
-const { program } = require('commander');
+const {program} = require('commander');
 
 /**
  * Check a folder.
