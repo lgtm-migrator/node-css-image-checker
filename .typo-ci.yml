@@ -3,3 +3,4 @@ dictionaries:
 
 excluded_words:
   - endofline
+  - isurl
