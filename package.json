@@ -39,6 +39,8 @@
         "check-package-lock": "^1.1.0",
         "child_process": "^1.0.2",
         "codecov": "^3.8.1",
+        "eslint": "^7.24.0",
+        "eslint-config-google": "^0.14.0",
         "expect": "^26.6.2",
         "mocha": "^8.3.2",
         "nyc": "^15.1.0"
