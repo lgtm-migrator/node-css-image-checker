@@ -23,8 +23,7 @@ function checkFolder() {
             const filecontent = fs.readFileSync(file, {encoding: 'utf-8'});
             const cssUrls = parseCssUrls(filecontent);
             cssUrls.forEach(function(cssUrl) {
-                if (isurl(cssUrl)) {
-                } else {
+                if (!isurl(cssUrl)) {
                     const cssReal = cssUrl.replace(/(\?|#).*$/, '');
                     let fullPath = filePath + cssReal;
                     if (cssReal.charAt(0) === '/') {

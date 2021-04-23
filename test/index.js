@@ -101,7 +101,7 @@ describe('index.js', function() {
             assert.strictEqual(code, 1);
             expect(out).to.match(/Error found in:.*?style\.css/);
             expect(out).to.match(/Full path not found: test\/css6\/404\/firefox\.png/);
-            expect(out).to.match(/Path in CSS file: \/404\/firefox\.png\?\#iefix/);
+            expect(out).to.match(/Path in CSS file: \/404\/firefox\.png\?#iefix/);
             expect(out).to.match(/Original path in CSS file: \/404\/firefox\.png/);
             expect(out).to.match(/Full path not found: test\/css6\/40\/firefox\.png/);
             expect(out).to.match(/Path in CSS file: \/40\/firefox\.png/);
