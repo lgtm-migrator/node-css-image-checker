@@ -48,9 +48,9 @@ css-image-checker can be used in CI environments to check your CSS files before 
 
 [![CircleCI](https://circleci.com/gh/gemal/node-css-image-checker.svg?style=svg)](https://circleci.com/gh/gemal/node-css-image-checker)
 
-[![codecov](https://codecov.io/gh/gemal/node-css-image-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/gemal/node-css-image-checker)
+[![codecov](https://codecov.io/gh/gemal/node-css-image-checker/branch/main/graph/badge.svg)](https://codecov.io/gh/gemal/node-css-image-checker)
 
-[![StyleCI](https://github.styleci.io/repos/175709177/shield?branch=master)](https://github.styleci.io/repos/175709177)
+[![StyleCI](https://github.styleci.io/repos/175709177/shield?branch=main)](https://github.styleci.io/repos/175709177)
 
 [![Known Vulnerabilities](https://snyk.io/test/github/gemal/node-css-image-checker/badge.svg)](https://snyk.io/test/github/gemal/node-css-image-checker)
 
