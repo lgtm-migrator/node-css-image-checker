@@ -2,7 +2,7 @@
 
 'use strict';
 
-const recursive = require('recursive-readdir-synchronous');
+const recursive = require('recursive-readdir-sync');
 const parseCssUrls = require('css-url-parser');
 const fs = require('fs');
 const path = require('path');
